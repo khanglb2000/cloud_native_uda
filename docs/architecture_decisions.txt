@@ -1,0 +1,14 @@
+1.Refactoring Decisions:
+_A separate microservice for connections created to utilize REST API for message passing.
+_A separate microservice for persons established, also using REST API for message passing.
+_A separate microservice for locations developed, employing gRPC and Kafka for message passing.
+
+2.Justifications for Decisions:
+_The connection microservice uses REST API due to its simplicity, which benefits users accessing the website. 
+As this microservice was developed last (after the persons and locations microservices), using REST for this customer-facing service is appropriate due to its straightforward nature.
+
+_The persons microservice was designed with RESTful API because it operates independently from the main application. 
+REST is suitable for managing HTTP requests to retrieve and submit person data, making it ideal for handling independent requests.
+
+_The location microservice uses Kafka to handle high volumes of data from mobile devices, ensuring efficient processing even as data grows. 
+To ensure data is structured correctly before being stored in the database, gRPC is used in conjunction with Kafka. This combination provides both speed and security in data transmission.
