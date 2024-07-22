@@ -9,8 +9,8 @@ from kafka import KafkaProducer
 
 
 producer = KafkaProducer(bootstrap_servers=['my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092'],
-                         value_serializer=lambda v:
-                         dumps(v).encode('utf-8'),api_version=(0, 10, 2))
+                        value_serializer=lambda v:
+                        dumps(v).encode('utf-8'),api_version=(0, 10, 2))
 
 
 class LocationService(location_pb2_grpc.LocationServiceServicer):
